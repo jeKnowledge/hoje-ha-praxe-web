@@ -6,6 +6,7 @@ var bodyParser = require('body-parser');
 var logfmt = require('logfmt');
 var fs = require('fs');
 
+/* Application logic variables */
 var hapraxe;
 var password;
 
@@ -60,7 +61,7 @@ app.get('/switch', function(req, res) {
   res.render('switch');
 });
 
-/* switch page that renders the answer to people */
+/* The switch page that renders the answer to users */
 app.get('/', function(req, res) {
   var date = new Date();
 
