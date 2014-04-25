@@ -1,0 +1,146 @@
+/* General screen rules
+*/
+@media all {
+
+	/* Structure styles
+	*/
+	body {
+		background-color: #E8E8E8;
+		color: #333333;
+		font: normal 100% "libertine";
+		padding: 0;
+		margin: 0;
+	}
+
+	img {
+		position: absolute;
+		bottom: 0%;
+		width: 100%;
+	}
+
+	div {
+		background-color: inherit;
+		margin: 3em 3em 0em 3em;
+		float: left;
+		width: 25%;
+	}
+
+	img {
+		display: none;
+	}
+
+
+	/* Imported fonts and font styles
+	*/
+	@font-face { 
+		font-family: "montaga";
+		src: url("../assets/montaga_regular.ttf");
+	}
+
+	@font-face {
+		font-family: "libertine";
+		src: url("../assets/libertine_italic.ttf");
+	}
+
+	h1, h2, p {
+		margin: 0;
+	}
+
+	span.fade {
+		color: #969696;
+	}
+
+	span.highlight_gold {
+		color: #A99A6F
+	}
+
+	span.highlight_green {
+		color: #00703C
+	}
+
+	#verdict {
+		font: normal 3.5em "montaga";
+		padding: 0.5em 0em 0.5em 0em;
+		border-bottom: solid 1px;
+		border-top: solid 1px;
+	}
+
+	#date {
+		background-color: inherit;
+		position: absolute;
+		font-size: 2em;
+		padding-right: 0.5em;
+		top: 0.9em;
+	}
+}
+
+
+/* Website screen rules
+*/
+@media all and (min-width: 1025px) {
+
+	div {
+		float: none;
+	}
+
+	#background_desk {
+		display: inherit;
+	}
+}
+
+
+/* Tablet screen rules
+*/
+@media all and (min-width: 769px) and (max-width: 1024px) {
+	
+	#background_desk {
+		display: inherit;
+	}
+
+	div {
+		width: 35%;
+	}
+}
+
+@media all and (min-width: 641px) and (max-width: 768px) {
+
+	#background_tablet {
+		display: inherit;
+	}
+
+	div {
+		width: 47%;
+	}
+}
+
+@media all and (min-width: 481px) and (max-width: 640px) {
+
+	#background_tablet {
+		display: inherit;
+	}
+
+	div {
+		width: 57%;
+	}
+}
+
+
+/* Smart phone screen rules
+*/
+@media all and (min-width: 321px) and (max-width: 480px) {
+	
+	#background_phone {
+		display: inherit;
+	}
+
+	div {
+		width: 75%;
+	}	
+}
+
+@media all and (max-width: 320px) {
+
+	div {
+		width: 65%;
+	}	
+}

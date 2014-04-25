@@ -1,0 +1,40 @@
+<!doctype html><html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
+    <meta charset="UTF-8">
+    <title>Hoje Há Praxe</title>
+  </head>
+
+  <body>
+    {{#hapraxe}}
+      <img id="background_desk" src="../assets/background_gold_desk.png">
+      <img id="background_tablet" src="../assets/background_gold_tablet.png">
+      <img id="background_phone" src="../assets/background_gold_phone.png">
+    {{/hapraxe}}
+    {{^hapraxe}}
+      <img id="background_desk" src="../assets/background_green_desk.png">
+      <img id="background_tablet" src="../assets/background_green_tablet.png">
+      <img id="background_phone" src="../assets/background_green_phone.png">
+    {{/hapraxe}}
+
+    <div>
+      <h2 id="date">{{day}} {{month}}</h2>
+
+      <h1 id="verdict">
+        {{#hapraxe}}
+          <span class="highlight_gold">Sim,</span><br>hoje vai<br>haver praxe.
+        {{/hapraxe}}
+        {{^hapraxe}}
+          <span class="highlight_gold">Não,</span><br>hoje não vai<br>haver praxe.
+        {{/hapraxe}}
+      </h1>
+    </div>
+    
+    <div>
+      <span class="fade">
+        Notificação official, oriundo do concelho de veteranos e condizente
+        com as respectivas normas, explicitas no código da praxe.
+      </span>
+    </div>
+  </body>
+</html>

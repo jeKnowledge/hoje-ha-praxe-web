@@ -1,0 +1,18 @@
+<!doctype html><html>
+  <head>
+    <title>Hoje Há Praxe</title>
+  </head>
+
+  <body>
+    <p>
+      Deseja alterar o estado da praxe em Coimbra?
+    </p>
+
+    <p>
+      <form method="post" action="/switch" >
+        <input type="password" name="password">
+        <input type="submit" value="Submit">
+      </form>
+    </p>
+  </body>
+</html>
