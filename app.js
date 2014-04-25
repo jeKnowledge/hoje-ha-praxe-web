@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 var logfmt = require('logfmt');
 var fs = require('fs');
 
-var hapraxe = true;
+var hapraxe;
 var password;
 
 /* Month names, in Portuguese */
@@ -22,10 +22,19 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Set up logging with logfmt */
 app.use(logfmt.requestLogger());
 
+/* Read current status from status.txt */
+fs.readFile('status.txt', 'utf8', function(err, data) {
+  if (err) {
+    console.log('An error occured while reading the status: ' + err);
+  } else {
+    hapraxe = data.replace('\n', '') === 'true';
+  }
+});
+
 /* Read a password from password.txt */
-fs.readFile('password.txt', 'utf8', function(error, data) {
-  if (error) {
-    console.log('An error occured while reading the password: ' + error);
+fs.readFile('password.txt', 'utf8', function(err, data) {
+  if (err) {
+    console.log('An error occured while reading the password: ' + err);
   } else {
     password = data.replace('\n', '');
   }
@@ -35,6 +44,12 @@ fs.readFile('password.txt', 'utf8', function(error, data) {
 app.post('/switch', function(req, res) {
   if (req.body.password == password) {
     hapraxe = !hapraxe;
+
+    fs.writeFile('status.txt', !hapraxe.toString(), function(err) {
+      if (err) {
+        throw err;
+      }
+    });
   }
 
   res.redirect('/');
@@ -45,10 +60,10 @@ app.get('/switch', function(req, res) {
   res.render('switch');
 });
 
-/* Main page that renders the answer to people */
+/* switch page that renders the answer to people */
 app.get('/', function(req, res) {
   var date = new Date();
-  
+
   res.render('index', { hapraxe: hapraxe, day: date.getDate(),
                         month: months[date.getMonth()] } );
 });
