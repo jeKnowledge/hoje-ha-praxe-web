@@ -11,8 +11,8 @@ var hapraxe;
 var password;
 
 /* Month names, in Portuguese */
-var months = ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun",
-              "Jul", "Ago", "Set", "Out", "Nov", "Dez"];
+var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
+              'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
 
 /* Set up the views/ and public/ folder */
 app.set('views', path.join(__dirname, 'views'));
