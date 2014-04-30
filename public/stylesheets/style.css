@@ -77,7 +77,7 @@
 
 /* Website screen rules
 */
-@media all and (min-width: 1025px) {
+@media all and (min-width: 1024px) {
 
 	div {
 		float: none;
@@ -91,7 +91,7 @@
 
 /* Tablet screen rules
 */
-@media all and (min-width: 769px) and (max-width: 1024px) {
+@media all and (min-width: 768px) and (max-width: 1023px) {
 	
 	#background_desk {
 		display: inherit;
@@ -102,7 +102,7 @@
 	}
 }
 
-@media all and (min-width: 641px) and (max-width: 768px) {
+@media all and (min-width: 640px) and (max-width: 767px) {
 
 	#background_tablet {
 		display: inherit;
@@ -113,7 +113,7 @@
 	}
 }
 
-@media all and (min-width: 481px) and (max-width: 640px) {
+@media all and (min-width: 480px) and (max-width: 639px) {
 
 	#background_tablet {
 		display: inherit;
@@ -127,7 +127,7 @@
 
 /* Smart phone screen rules
 */
-@media all and (min-width: 321px) and (max-width: 480px) {
+@media all and (min-width: 320px) and (max-width: 478px) {
 	
 	#background_phone {
 		display: inherit;
@@ -138,7 +138,7 @@
 	}	
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 319px) {
 
 	div {
 		width: 65%;
