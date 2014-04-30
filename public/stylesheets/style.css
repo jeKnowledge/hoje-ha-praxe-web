@@ -102,7 +102,7 @@
 	}
 }
 
-@media all and (min-width: 640px) and (max-width: 768px) {
+@media all and (min-width: 641px) and (max-width: 768px) {
 
 	#background_tablet {
 		display: inherit;
