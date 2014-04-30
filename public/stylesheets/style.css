@@ -102,7 +102,7 @@
 	}
 }
 
-@media all and (min-width: 646px) and (max-width: 768px) {
+@media all and (min-width: 651px) and (max-width: 768px) {
 
 	#background_tablet {
 		display: inherit;
@@ -113,7 +113,7 @@
 	}
 }
 
-@media all and (min-width: 480px) and (max-width: 645px) {
+@media all and (min-width: 480px) and (max-width: 650px) {
 
 	#background_tablet {
 		display: inherit;
