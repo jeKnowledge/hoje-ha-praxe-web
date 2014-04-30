@@ -9,6 +9,7 @@ var fs = require('fs');
 /* Application logic variables */
 var hapraxe;
 var password;
+var notification;
 
 /* Month names, in Portuguese */
 var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
@@ -41,12 +42,28 @@ fs.readFile('password.txt', 'utf8', function(err, data) {
   }
 });
 
+/* Read the notification text */
+fs.readFile('notification.txt', 'utf8', function(err, data) {
+  if (err) {
+    console.log('An error occured while reading the notification: ' + err);
+  } else {
+    notification = data;
+  }
+});
+
 /* Verifies the password is correct, if yes change the status and go to main page */
 app.post('/switch', function(req, res) {
   if (req.body.password == password) {
     hapraxe = !hapraxe;
+    notification = req.body.notification;
 
     fs.writeFile('status.txt', !hapraxe.toString(), function(err) {
+      if (err) {
+        throw err;
+      }
+    });
+
+    fs.writeFile('notification.txt', notification, function(err) {
       if (err) {
         throw err;
       }
@@ -58,7 +75,7 @@ app.post('/switch', function(req, res) {
 
 /* The /switch page that allows admins to change the status of the website */
 app.get('/switch', function(req, res) {
-  res.render('switch');
+  res.render('switch', { notification: notification });
 });
 
 /* The switch page that renders the answer to users */
@@ -66,7 +83,8 @@ app.get('/', function(req, res) {
   var date = new Date();
 
   res.render('index', { hapraxe: hapraxe, day: date.getDate(),
-                        month: months[date.getMonth()] } );
+                        month: months[date.getMonth()],
+                        notification: notification} );
 });
 
 /* Start up the server */

@@ -32,8 +32,7 @@
     
     <div>
       <span class="fade">
-        Notificação official, oriundo do concelho de veteranos e condizente
-        com as respectivas normas, explicitas no código da praxe.
+        {{notification}}
       </span>
     </div>
   </body>

@@ -10,8 +10,12 @@
 
     <p>
       <form method="post" action="/switch" >
-        <input type="password" name="password">
-        <input type="submit" value="Submit">
+        <p><textarea name="notification" rows="20" cols="70">{{notification}}</textarea></p>
+        
+        <p>
+          <input type="password" name="password" placeholder="Enter password">
+          <input type="submit" value="Submit">
+        </p>
       </form>
     </p>
   </body>
