@@ -91,7 +91,7 @@
 
 /* Tablet screen rules
 */
-@media all and (min-width: 768px) and (max-width: 1023px) {
+@media all and (min-width: 768px) and (max-width: 1024px) {
 	
 	#background_desk {
 		display: inherit;
@@ -102,7 +102,7 @@
 	}
 }
 
-@media all and (min-width: 640px) and (max-width: 767px) {
+@media all and (min-width: 640px) and (max-width: 768px) {
 
 	#background_tablet {
 		display: inherit;
@@ -113,7 +113,7 @@
 	}
 }
 
-@media all and (min-width: 480px) and (max-width: 639px) {
+@media all and (min-width: 480px) and (max-width: 640px) {
 
 	#background_tablet {
 		display: inherit;
@@ -127,7 +127,7 @@
 
 /* Smart phone screen rules
 */
-@media all and (min-width: 320px) and (max-width: 478px) {
+@media all and (min-width: 320px) and (max-width: 480px) {
 	
 	#background_phone {
 		display: inherit;
@@ -138,7 +138,7 @@
 	}	
 }
 
-@media all and (max-width: 319px) {
+@media all and (max-width: 320px) {
 
 	div {
 		width: 65%;
