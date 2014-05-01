@@ -10,6 +10,7 @@ var fs = require('fs');
 var hapraxe;
 var password;
 var notification;
+var reason;
 
 /* Month names, in Portuguese */
 var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
@@ -42,6 +43,15 @@ fs.readFile('password.txt', 'utf8', function(err, data) {
   }
 });
 
+/* Read the reason */
+fs.readFile('reason.txt', 'utf8', function(err, data) {
+  if (err) {
+    console.log('An error occured while reading the reason: ' + err);
+  } else {
+    reason = data;
+  }
+});
+
 /* Read the notification text */
 fs.readFile('notification.txt', 'utf8', function(err, data) {
   if (err) {
@@ -68,6 +78,12 @@ app.post('/switch', function(req, res) {
         throw err;
       }
     });
+
+    fs.writeFile('reason.txt', reason, function(err) {
+      if (err) {
+        throw err;
+      }
+    });
   }
 
   res.redirect('/');
@@ -75,7 +91,13 @@ app.post('/switch', function(req, res) {
 
 /* The /switch page that allows admins to change the status of the website */
 app.get('/switch', function(req, res) {
-  res.render('switch', { notification: notification });
+  res.render('switch', { notification: notification,
+                         reason: reason });
+});
+
+app.get('/result', function(req, res) {
+  res.setHeader('Content-Type', 'application/json');
+  res.end(JSON.stringify({ hapraxe: hapraxe }));
 });
 
 /* The switch page that renders the answer to users */
@@ -84,7 +106,8 @@ app.get('/', function(req, res) {
 
   res.render('index', { hapraxe: hapraxe, day: date.getDate(),
                         month: months[date.getMonth()],
-                        notification: notification} );
+                        notification: notification,
+                        reason: reason } );
 });
 
 /* Start up the server */

@@ -22,17 +22,19 @@
 
       <h1 id="verdict">
         {{#hapraxe}}
-          <span class="highlight_gold">Sim,</span><br>hoje vai<br>haver praxe.
+          <span class="highlight_gold">Sim,</span><br>hoje pode<br>haver praxe.
         {{/hapraxe}}
         {{^hapraxe}}
-          <span class="highlight_gold">Não,</span><br>hoje não vai<br>haver praxe.
+          <span class="highlight_gold">Não,</span><br>hoje não pode<br>haver praxe.
         {{/hapraxe}}
       </h1>
     </div>
     
     <div>
       <span class="fade">
-        {{notification}}
+        <p>{{reason}}</p>
+
+        <p>{{notification}}</p>
       </span>
     </div>
   </body>
