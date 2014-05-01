@@ -95,9 +95,12 @@ app.get('/switch', function(req, res) {
                          reason: reason });
 });
 
+/* An API-like JSON result */
 app.get('/result', function(req, res) {
-  res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify({ hapraxe: hapraxe }));
+  res.setHeader('Content-Type', 'application/json; charset=utf-8');
+  res.end(JSON.stringify({ hapraxe: hapraxe,
+                           notification: notification,
+                           reason: reason }));
 });
 
 /* The switch page that renders the answer to users */
