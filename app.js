@@ -59,6 +59,8 @@ fs.readFile('notification.txt', 'utf8', function(err, data) {
   } else {
     notification = data;
   }
+
+  console.log(typeof notification);
 });
 
 /* Verifies the password is correct, if yes change the status and go to main page */
@@ -100,7 +102,7 @@ app.get('/result', function(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
   res.end(JSON.stringify({ hapraxe: hapraxe,
                            notification: notification,
-                           reason: reason }));
+                           reason: reason }, null, 4));
 });
 
 /* The switch page that renders the answer to users */
