@@ -64,11 +64,11 @@ fs.readFile('notification.txt', 'utf8', function(err, data) {
 /* Verifies the password is correct, if yes change the status and go to main page */
 app.post('/switch', function(req, res) {
   if (req.body.password == password) {
-    hapraxe = !hapraxe;
+    hapraxe = !! req.body.hapraxe;
     reason = req.body.reason;
     notification = req.body.notification;
 
-    fs.writeFile('status.txt', !hapraxe.toString(), function(err) {
+    fs.writeFile('status.txt', hapraxe.toString(), function(err) {
       if (err) {
         throw err;
       }

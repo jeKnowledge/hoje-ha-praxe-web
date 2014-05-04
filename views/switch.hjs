@@ -14,6 +14,8 @@
 
         <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{notification}}</textarea></p>
 
+        <label><p><input type="checkbox" name="hapraxe" value="hapraxe">Há Praxe?</label>
+        
         <p>
           <input type="password" name="password" placeholder="Enter password">
           <input type="submit" value="Submit">
