@@ -92,7 +92,8 @@ app.post('/switch', function(req, res) {
 
 /* The /switch page that allows admins to change the status of the website */
 app.get('/switch', function(req, res) {
-  res.render('switch', { notification: notification,
+  res.render('switch', { hapraxe: hapraxe,
+                         notification: notification,
                          reason: reason });
 });
 
