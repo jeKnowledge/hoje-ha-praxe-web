@@ -59,14 +59,13 @@ fs.readFile('notification.txt', 'utf8', function(err, data) {
   } else {
     notification = data;
   }
-
-  console.log(typeof notification);
 });
 
 /* Verifies the password is correct, if yes change the status and go to main page */
 app.post('/switch', function(req, res) {
   if (req.body.password == password) {
     hapraxe = !hapraxe;
+    reason = req.body.reason;
     notification = req.body.notification;
 
     fs.writeFile('status.txt', !hapraxe.toString(), function(err) {
@@ -75,13 +74,13 @@ app.post('/switch', function(req, res) {
       }
     });
 
-    fs.writeFile('notification.txt', notification, function(err) {
+    fs.writeFile('reason.txt', reason, function(err) {
       if (err) {
         throw err;
       }
     });
 
-    fs.writeFile('reason.txt', reason, function(err) {
+    fs.writeFile('notification.txt', notification, function(err) {
       if (err) {
         throw err;
       }

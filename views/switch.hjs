@@ -10,7 +10,7 @@
 
     <p>
       <form method="post" action="/switch" >
-        <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{reason}}</textarea></p>
+        <p><textarea name="reason" rows="20" cols="70" maxlength="80">{{reason}}</textarea></p>
 
         <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{notification}}</textarea></p>
 

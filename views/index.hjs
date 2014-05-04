@@ -32,7 +32,7 @@
     
     <div>
       <span class="fade">
-        <p>{{reason}}</p>
+        <p class="reason">{{reason}}</p>
 
         <p>{{notification}}</p>
       </span>
