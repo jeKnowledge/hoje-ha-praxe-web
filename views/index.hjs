@@ -29,10 +29,12 @@
         {{/hapraxe}}
       </h1>
     </div>
-    
+
     <div>
       <span class="fade">
-        <p class="reason">{{reason}}</p>
+        {{^hapraxe}}
+          <p class="reason">{{reason}}</p>
+        {{/hapraxe}}
 
         <p>{{notification}}</p>
       </span>
