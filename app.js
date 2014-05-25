@@ -74,13 +74,13 @@ app.post('/switch', function(req, res) {
       }
     });
 
-    fs.writeFile('reason.txt', reason, function(err) {
+    fs.writeFile('reason.txt', reason.toString(), function(err) {
       if (err) {
         throw err;
       }
     });
 
-    fs.writeFile('notification.txt', notification, function(err) {
+    fs.writeFile('notification.txt', notification.toString(), function(err) {
       if (err) {
         throw err;
       }
