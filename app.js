@@ -8,13 +8,43 @@ var fs = require('fs');
 
 /* Application logic variables */
 var hapraxe;
-var password;
+var password = 'veteranos';
 var notification;
 var reason;
 
 /* Month names, in Portuguese */
 var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
               'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/praxedb');
+
+var information = db.get('informationxx');
+/*information.insert({ a: 4 }, function (err, doc) {
+  if (err) {
+    throw err;
+  }
+});*/
+
+console.log();
+//db.update({ },
+
+information.findOne({ }, function(err, doc) {
+  if (err) {
+    throw err;
+  } else {
+    if (doc == null) {
+      doc = { hapraxe: true,
+              reason: '',
+              notification: 'Notificação oficial, do Conselho de Veteranos da Universidade de Coimbra.' };
+    } else {
+      hapraxe = doc.hapraxe;
+      reason = doc.reason;
+      notification = doc.notification;
+    }
+  }
+});
 
 /* Set up the views/ and public/ folder */
 app.set('views', path.join(__dirname, 'views'));
@@ -25,42 +55,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 /* Set up logging with logfmt */
 app.use(logfmt.requestLogger());
 
-/* Read current status from status.txt */
-fs.readFile('status.txt', 'utf8', function(err, data) {
-  if (err) {
-    console.log('An error occured while reading the status: ' + err);
-  } else {
-    hapraxe = data.replace('\n', '') === 'true';
-  }
-});
-
-/* Read a password from password.txt */
-fs.readFile('password.txt', 'utf8', function(err, data) {
-  if (err) {
-    console.log('An error occured while reading the password: ' + err);
-  } else {
-    password = data.replace('\n', '');
-  }
-});
-
-/* Read the reason */
-fs.readFile('reason.txt', 'utf8', function(err, data) {
-  if (err) {
-    console.log('An error occured while reading the reason: ' + err);
-  } else {
-    reason = data;
-  }
-});
-
-/* Read the notification text */
-fs.readFile('notification.txt', 'utf8', function(err, data) {
-  if (err) {
-    console.log('An error occured while reading the notification: ' + err);
-  } else {
-    notification = data;
-  }
-});
-
 /* Verifies the password is correct, if yes change the status and go to main page */
 app.post('/switch', function(req, res) {
   if (req.body.password == password) {
@@ -68,23 +62,9 @@ app.post('/switch', function(req, res) {
     reason = req.body.reason;
     notification = req.body.notification;
 
-    fs.writeFile('status.txt', hapraxe.toString(), function(err) {
-      if (err) {
-        throw err;
-      }
-    });
-
-    fs.writeFile('reason.txt', reason.toString(), function(err) {
-      if (err) {
-        throw err;
-      }
-    });
-
-    fs.writeFile('notification.txt', notification.toString(), function(err) {
-      if (err) {
-        throw err;
-      }
-    });
+    information.update({ }, { $set: { hapraxe: hapraxe } });
+    information.update({ }, { $set: { reason: reason } });
+    information.update({ }, { $set: { notification: notification } });
   }
 
   res.redirect('/');
