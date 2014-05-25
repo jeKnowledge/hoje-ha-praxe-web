@@ -18,7 +18,7 @@ var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/praxedb');
+var db = monk('mongodb://localhost/praxedb');
 
 var information = db.get('information');
 
