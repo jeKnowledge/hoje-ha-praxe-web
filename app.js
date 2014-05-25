@@ -20,15 +20,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/praxedb');
 
-var information = db.get('informationxx');
-/*information.insert({ a: 4 }, function (err, doc) {
-  if (err) {
-    throw err;
-  }
-});*/
-
-console.log();
-//db.update({ },
+var information = db.get('information');
 
 information.findOne({ }, function(err, doc) {
   if (err) {
