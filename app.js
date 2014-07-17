@@ -18,8 +18,10 @@ var months = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
 
 var mongo = require('mongodb');
 var monk = require('monk');
-// var uri = process.env.MONGOLAB_URI; // For Heroku
-var db = monk('mongodb://localhost/praxedb');
+
+var uri = process.env.MONGOLAB_URI; // For Heroku
+// var db = monk('mongodb://localhost/praxedb');
+var db = monk(uri);
 
 var information = db.get('information');
 
