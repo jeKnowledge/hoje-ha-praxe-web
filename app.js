@@ -34,6 +34,11 @@ information.findOne({ }, function(err, doc) {
       doc = { hapraxe: true,
               reason: '',
               notification: 'Notificação oficial, do Conselho de Veteranos da Universidade de Coimbra.' };
+
+      information.insert(doc, function(err, doc) {
+        console.log('Hi there: ' + err);
+      });
+      
     } else {
       hapraxe = doc.hapraxe;
       reason = doc.reason;
