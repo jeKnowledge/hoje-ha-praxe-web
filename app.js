@@ -80,7 +80,7 @@ app.get('/switch', function(req, res) {
 /* An API-like JSON result */
 app.get('/result', function(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.end(JSON.stringify({ hapraxe: +hapraxe,
+  res.end(JSON.stringify({ hapraxe: String(hapraxe),
                            notification: notification,
                            reason: reason }, null, 4));
 });
