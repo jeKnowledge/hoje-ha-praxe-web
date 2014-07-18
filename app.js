@@ -38,7 +38,6 @@ information.findOne({ }, function(err, doc) {
       information.insert(doc, function(err, doc) {
         console.log('Hi there: ' + err);
       });
-      
     } else {
       hapraxe = doc.hapraxe;
       reason = doc.reason;
@@ -81,7 +80,7 @@ app.get('/switch', function(req, res) {
 /* An API-like JSON result */
 app.get('/result', function(req, res) {
   res.setHeader('Content-Type', 'application/json; charset=utf-8');
-  res.end(JSON.stringify({ hapraxe: hapraxe,
+  res.end(JSON.stringify({ hapraxe: +hapraxe,
                            notification: notification,
                            reason: reason }, null, 4));
 });
