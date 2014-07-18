@@ -20,7 +20,7 @@ var mongo = require('mongodb');
 var monk = require('monk');
 
 var uri = process.env.MONGOLAB_URI || 'mongodb://localhost/praxedb';
-console.log(uri);
+console.log("The Mongo URI is " + uri);
 var db = monk(uri);
 
 var information = db.get('information');
