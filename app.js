@@ -25,18 +25,22 @@ var db = monk(uri);
 var information = db.get('information');
 
 information.findOne({ }, function(err, doc) {
-  if (err) {
+  if (err) { /* There was an error searching in the database */
     throw err;
   } else {
-    if (doc == null) {
+    if (doc == null) { /* Writing for the first time */
       doc = { hapraxe: true,
               reason: '',
               notification: 'Notificação oficial, do Conselho de Veteranos da Universidade de Coimbra.' };
 
       information.insert(doc, function(err, doc) {
-        console.log('Hi there: ' + err);
+        if (err) {
+          console.log("There was an error writing to the database: " + err);
+        } else {
+          console.log("Database written successfully.");
+        }
       });
-    } else {
+    } else { /* Reading existing database values */
       hapraxe = doc.hapraxe;
       reason = doc.reason;
       notification = doc.notification;
