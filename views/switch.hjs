@@ -3,33 +3,36 @@
     <title>Hoje Há Praxe</title>
   </head>
 
-  <body>
+  <body style="width: 500px; margin-left: auto; margin-right: auto; display: block; background-color: gray;">
+    <h1>Painel de Control do Hoje Há Praxe</h1>
+
+    <form method="post" action="/switch" >
+      <h3>Controlador principal do estado da PRAXE</h3>
+      {{#hapraxe}}
+        <label><p><input type="checkbox" name="hapraxe" value="hapraxe" checked>Há Praxe?</label>
+      {{/hapraxe}}
+      {{^hapraxe}}
+        <label><p><input type="checkbox" name="hapraxe" value="hapraxe">Há Praxe?</label>
+      {{/hapraxe}}
+
+      
+      <h3>Motivo por não haver praxe caso não haja.</h3>
+      <p><textarea name="reason" rows="20" cols="70" maxlength="80">{{reason}}</textarea></p>
+
+      <h3>Notificação extra</h3>
+      <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{notification}}</textarea></p>
+
+      <h3>Credenciais de acesso</h3>
+      <p>
+        <input type="password" name="password" placeholder="Enter password">
+        <input type="submit" value="Submit">
+      </p>
+    </form>
+
+    <hr></hr>
+    
     <p>
-      Deseja alterar o estado da praxe em Coimbra?
-    </p>
-
-    <p>
-      <form method="post" action="/switch" >
-        <p><textarea name="reason" rows="20" cols="70" maxlength="80">{{reason}}</textarea></p>
-
-        <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{notification}}</textarea></p>
-
-        {{#hapraxe}}
-          <label><p><input type="checkbox" name="hapraxe" value="hapraxe" checked>Há Praxe?</label>
-        {{/hapraxe}}
-        {{^hapraxe}}
-          <label><p><input type="checkbox" name="hapraxe" value="hapraxe">Há Praxe?</label>
-        {{/hapraxe}}
-
-        <p>
-          <input type="password" name="password" placeholder="Enter password">
-          <input type="submit" value="Submit">
-        </p>
-      </form>
-    </p>
-
-    <p>
-      Made by <a href="http://www.jeknowledge.pt">
+      Made by <a href="http://www.jeknowledge.pt">jeKnowledge</a>.
     </p>
   </body>
 </html>
