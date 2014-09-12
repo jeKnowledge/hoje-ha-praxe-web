@@ -132,7 +132,10 @@
 /* Smart phone screen rules
  */
 @media all and (min-width: 320px) and (max-width: 480px) {
-
+  #verdict {
+    font-size: 1.4em;
+  }
+  
   #background_phone {
     display: inherit;
   }
@@ -143,7 +146,6 @@
 }
 
 @media all and (max-width: 320px) {
-
   div {
     width: 65%;
   }
