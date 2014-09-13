@@ -7,7 +7,7 @@
     <h1>Painel de Control do Hoje Há Praxe</h1>
 
     <form method="post" action="/switch" >
-      <h3>Controlador principal do estado da PRAXE</h3>
+      <h3>Alterar PRAXE</h3>
       {{#hapraxe}}
         <label><p><input type="checkbox" name="hapraxe" value="hapraxe" checked>Há Praxe?</label>
       {{/hapraxe}}
@@ -22,7 +22,7 @@
       <h3>Notificação extra</h3>
       <p><textarea name="notification" rows="20" cols="70" maxlength="80">{{notification}}</textarea></p>
 
-      <h3>Credenciais de acesso</h3>
+      <h3>Password</h3>
       <p>
         <input type="password" name="password" placeholder="Enter password">
         <input type="submit" value="Submit">
