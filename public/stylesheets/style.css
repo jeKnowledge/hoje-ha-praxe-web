@@ -11,10 +11,11 @@
     margin: 0;
   }
 
-  img {
+  .background-img {
     position: absolute;
     bottom: 0%;
     width: 100%;
+    display: none;
   }
 
   div {
@@ -24,11 +25,22 @@
     width: 25%;
   }
 
-  img {
-    display: none;
+  #logos {
+    opacity: 0.75;
+  }
+  
+  #jk-logo {
+    width: 45%;
+    height: 45%;
+    vertical-align: middle;
   }
 
-
+  #cv-logo {
+    width: 20%;
+    height: 20%;
+    vertical-align: middle;
+  }
+  
   /* Imported fonts and font styles
    */
   @font-face {

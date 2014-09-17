@@ -10,14 +10,14 @@
 
   <body>
     {{#hapraxe}}
-      <img id="background_desk" src="../assets/background_gold_desk.png">
-      <img id="background_tablet" src="../assets/background_gold_tablet.png">
-      <img id="background_phone" src="../assets/background_gold_phone.png">
+      <img class="background-img" id="background_desk" src="../assets/background_gold_desk.png">
+      <img class="background-img" id="background_tablet" src="../assets/background_gold_tablet.png">
+      <img class="background-img" id="background_phone" src="../assets/background_gold_phone.png">
     {{/hapraxe}}
     {{^hapraxe}}
-      <img id="background_desk" src="../assets/background_green_desk.png">
-      <img id="background_tablet" src="../assets/background_green_tablet.png">
-      <img id="background_phone" src="../assets/background_green_phone.png">
+      <img class="background-img" id="background_desk" src="../assets/background_green_desk.png">
+      <img class="background-img" id="background_tablet" src="../assets/background_green_tablet.png">
+      <img class="background-img" id="background_phone" src="../assets/background_green_phone.png">
     {{/hapraxe}}
 
     <div>
@@ -40,6 +40,16 @@
         {{/hapraxe}}
 
         <p>{{notification}}</p>
+
+        <p id="logos">
+          <a href="http://mcv.aac.uc.pt/">
+            <img id="cv-logo" src="../assets/cv_logo.png"/>
+          </a>
+
+          <a href="http://jeknowledge.pt/">
+            <img id="jk-logo" src="../assets/jk_logo.png"/>
+          </a>
+        </p>
       </span>
     </div>
   </body>
