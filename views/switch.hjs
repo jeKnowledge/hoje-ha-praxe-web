@@ -9,7 +9,7 @@
     <form method="post" action="/switch" >
       <h3>Alterar PRAXE</h3>
       {{#hapraxe}}
-        <label><p><input type="checkbox" name="hapraxe" value="hapraxe" checked>Há Praxe?</label>
+        <label><p><input type="checkbox" name="hapraxe" value="hapraxe" checked>Há Praxe</label>
       {{/hapraxe}}
       {{^hapraxe}}
         <label><p><input type="checkbox" name="hapraxe" value="hapraxe">Há Praxe?</label>
